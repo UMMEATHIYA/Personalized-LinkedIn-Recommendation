@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized Recommendation System for LinkedIn</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f0f0f0;
+        }
+        .profile {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .profile img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Personalized Recommendation System for LinkedIn</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile">
+                    <img src="https://via.placeholder.com/100" alt="Profile Picture">
+                    <h4>John Doe</h4>
+                    <p>Software Engineer at Microsoft</p>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal1">View Profile</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="profile">
+                    <img src="https://via.placeholder.com/100" alt="Profile Picture">
+                    <h4>Jane Smith</h4>
+                    <p>Marketing Manager at Google</p>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal2">View Profile</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="profile">
+                    <img src="https://via.placeholder.com/100" alt="Profile Picture">
+                    <h4>Bob Johnson</h4>
+                    <p>Product Designer at Amazon</p>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal3">View Profile</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 1 -->
+    <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="modal1Label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal1Label">John Doe</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Software Engineer at Microsoft</p>
+                    <p>Interested in coding, reading, and traveling</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="modal2Label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal2Label">Jane Smith</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Marketing Manager at Google</p>
+                    <p>Interested in marketing, social media, and photography</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3 -->
+    <div class="modal fade" id="modal3" tabindex="-1" role="dialog" aria-labelledby="modal3Label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal3Label">Bob Johnson</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Product Designer at Amazon</p>
+                    <p>Interested in design, technology, and innovation</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+        // Generate randomized user data and recommendations
+        const users = [
+            { name: "John Doe", title: "Software Engineer at Microsoft", interests: ["coding", "reading", "traveling"] },
+            { name: "Jane Smith", title: "Marketing Manager at Google", interests: ["marketing", "social media", "photography"] },
+            { name: "Bob Johnson", title: "Product Designer at Amazon", interests: ["design", "technology", "innovation"] },
+        ];
+
+        // Function to generate recommendations
+        function generateRecommendations(user) {
+            const recommendations = [];
+            users.forEach((otherUser) => {
+                if (otherUser.name !== user.name) {
+                    const commonInterests = user.interests.filter((interest) => otherUser.interests.includes(interest));
+                    if (commonInterests.length > 0) {
+                        recommendations.push(otherUser);
+                    }
+                }
+            });
+            return recommendations;
+        }
+
+        // Example usage
+        const user = users[0];
+        const recommendations = generateRecommendations(user);
+        console.log(recommendations);
+    </script>
+</body>
+</html>
