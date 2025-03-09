@@ -56,9 +56,6 @@ This project implements a **Personalized Recommendation System** for LinkedIn, l
 - Deploy as a **REST API** using FastAPI.
 - Optimize model performance with **hyperparameter tuning**.
 
-## License
-This project is licensed under the MIT License.
-
 ## Contact
-For questions, feel free to reach out to **Umme Athiya** at [your-email@example.com].
+For questions, feel free to reach out to **Umme Athiya** at ummeathiya2023@gmail.com.
 
